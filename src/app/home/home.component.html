@@ -1,0 +1,45 @@
+<header>
+    <div class="container">
+        <h1>Tu tipo de cambio </h1>
+    </div>
+</header>
+<section>
+
+
+    <div class="box">
+        <div class="container">
+            <div class="combo" #cboOrigen>
+                <p (click)="toggle(cboOrigen)">
+                    <span>{{ itemOrigen.name }}</span>
+                    <i class="fa fa-chevron-down"></i>
+                    <i class="fa fa-chevron-up"></i>
+                </p>
+                <ul>
+                    <li *ngFor="let item of dataOrigen" (click)="selectOrigen(cboOrigen, item)">
+                        <i class="fa fa-circle"></i>
+                        <i class="fa fa-circle-o"></i>
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+            <input type="number" placeholder="Ingrese una cantidad" [(ngModel)]="mount">
+            <div class="combo" #cboDestino>
+                <p (click)="toggle(cboDestino)">
+                    <span>{{ itemDestino.name }}</span>
+                    <i class="fa fa-chevron-down"></i>
+                    <i class="fa fa-chevron-up"></i>
+                </p>
+                <ul>
+                    <li *ngFor="let item of dataDestino" (click)="selectDestino(cboDestino, item)">
+                        <i class="fa fa-circle"></i>
+                        <i class="fa fa-circle-o"></i>
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+            <button (click)="consultar()">Consultar</button>
+            <label>{{result}}</label>
+        </div>
+    </div>
+
+</section>
